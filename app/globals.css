@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+/*
+ * @szczypkaweb/shared-ui ships components (e.g. Button) whose Tailwind
+ * utility classes live in the compiled dist bundle rather than in source
+ * files under this app. Tailwind v4's automatic content detection does not
+ * scan node_modules, so we explicitly point it at the package's dist output
+ * to make sure those utility classes are generated here too.
+ */
+@source "../node_modules/@szczypkaweb/shared-ui/dist";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
