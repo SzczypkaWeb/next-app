@@ -12,8 +12,8 @@ importers:
         specifier: ^10.69.0
         version: 10.69.0(@opentelemetry/core@2.10.0(@opentelemetry/api@1.9.1))(@opentelemetry/sdk-trace-base@2.10.0(@opentelemetry/api@1.9.1))(next@16.3.0(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(@types/node@20.19.43)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(react@19.2.8)(webpack@5.109.2)
       '@szczypkaweb/shared-ui':
-        specifier: file:../shared-ui
-        version: file:../shared-ui(@types/react-dom@19.2.4(@types/react@19.2.18))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+        specifier: ^0.1.0
+        version: 0.1.0(@types/react-dom@19.2.4(@types/react@19.2.18))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       next:
         specifier: 16.3.0
         version: 16.3.0(@babel/core@7.29.7)(@opentelemetry/api@1.9.1)(@types/node@20.19.43)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -1704,8 +1704,8 @@ packages:
   '@swc/helpers@0.5.15':
     resolution: {integrity: sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g==}
 
-  '@szczypkaweb/shared-ui@file:../shared-ui':
-    resolution: {directory: ../shared-ui, type: directory}
+  '@szczypkaweb/shared-ui@0.1.0':
+    resolution: {integrity: sha512-VZvOMUKXzz8kTEgnTON79ECEbiGokdVks5/TBBigLTihGeymc0O7kmmbuBrnHSkaz8yytW8ZxrOeFdYjkub9zA==, tarball: https://npm.pkg.github.com/download/@szczypkaweb/shared-ui/0.1.0/b14412e67cf06d8339f3071506fc10d45d7fd3ae}
     peerDependencies:
       react: '>=18'
       react-dom: '>=18'
@@ -5739,7 +5739,7 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@szczypkaweb/shared-ui@file:../shared-ui(@types/react-dom@19.2.4(@types/react@19.2.18))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@szczypkaweb/shared-ui@0.1.0(@types/react-dom@19.2.4(@types/react@19.2.18))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
       clsx: 2.1.1
       radix-ui: 1.6.7(@types/react-dom@19.2.4(@types/react@19.2.18))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
