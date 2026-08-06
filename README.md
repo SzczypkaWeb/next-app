@@ -35,11 +35,7 @@ package is published there.
 
 ## Environment variables
 
-- `NEXT_PUBLIC_APP_URL` - base URL of the Module Federation shell app
-  (defaults to `http://localhost:8080`). Used to build the "Zaloguj się" and
-  "Zacznij zarabiać" links to the shell's login page. There is no
-  shared session/cookie between the two apps yet - that's deferred until a
-  real shared domain exists.
+- NEXT_PUBLIC_APP_URL=<publiczny adres frontend-shell na Azure, jak już tam wyląduje>
 
 ## Known follow-ups (out of scope for this app's bootstrap)
 
