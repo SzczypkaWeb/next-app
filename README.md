@@ -35,7 +35,7 @@ package is published there.
 
 ## Environment variables
 
-- NEXT_PUBLIC_APP_URL=<publiczny adres frontend-shell na Azure, jak już tam wyląduje>
+- NEXT_PUBLIC_APP_URL=<public frontend-shell URL on Azure, once it's deployed there>
 
 ## Known follow-ups (out of scope for this app's bootstrap)
 
