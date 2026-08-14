@@ -1,0 +1,49 @@
+name: CI
+
+# Required PR check (branch protection) - lint/test/build. Previously
+# missing entirely: Vercel builds every PR preview, but nothing gated the
+# PR on lint/test passing first (see infra/RUNBOOK.md and BLOG_NOTES.md for
+# how this gap was found - a testing/Sentry coverage survey across all
+# frontend repos).
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Enable Corepack (pnpm)
+        run: corepack enable
+
+      # pnpm DELIBERATELY ignores `${GITHUB_TOKEN}` in a committed project
+      # .npmrc (see .npmrc in this repo) regardless of env vars set at job
+      # or step level - a deliberate pnpm safeguard against a swapped
+      # project .npmrc stealing the token via a substituted registry (see
+      # https://pnpm.io/npmrc). Same fix already used in react-app/
+      # frontend-shell's workflows: set it explicitly via `pnpm config set`
+      # (user-level config) before `pnpm install`.
+      - name: Configure registry auth
+        run: pnpm config set "//npm.pkg.github.com/:_authToken" "$GITHUB_TOKEN"
+        env:
+          GITHUB_TOKEN: ${{ secrets.PACKAGES_READ_TOKEN }}
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Test
+        run: pnpm test
+
+      # Covers typecheck too - `next build` type-checks as part of the
+      # production build, no separate `tsc --noEmit` step needed.
+      - name: Build
+        run: pnpm build
