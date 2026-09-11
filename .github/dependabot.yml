@@ -17,14 +17,19 @@ updates:
       - github-packages-szczypkaweb
     schedule:
       interval: "daily"
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "chore"
+    # Was scoped to just @szczypkaweb/shared-ui via an `allow` block -
+    # broadened to general dependency management after a hand-picked major
+    # version bump (@nestjs/swagger, in backend) shipped a peer-dependency
+    # mismatch that Dependabot would have caught/flagged. `registries` above
+    # is still needed specifically for resolving shared-ui from GH Packages.
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
     open-pull-requests-limit: 5
     commit-message:
       prefix: "chore"
-    # Scoped to shared-ui on purpose - this is here to stop the manual
-    # package.json range bump + lockfile refresh every time shared-ui
-    # publishes, not to take over general dependency management for this
-    # repo. Remove this `allow` block if you want Dependabot to also manage
-    # everything else (Next.js, etc.) - deliberately not doing that here to
-    # avoid opening unrelated noisy PRs.
-    allow:
-      - dependency-name: "@szczypkaweb/shared-ui"
